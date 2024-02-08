@@ -1,5 +1,5 @@
 import streamlit as st
-import openpyxl
+# import openpyxl 
 import xml.etree.ElementTree as ET
 import damage_scenario as ds
 import io
@@ -25,11 +25,11 @@ if xsam_file:
             
     excel_data = io.BytesIO()
             
-    df.to_excel(excel_data, index=False, sheet_name='Sheet1')
+    df.to_csv(excel_data, index=False)
             
             # excel_data.seek(0)
             # excel_content = excel_data.read()            
             
-    st.download_button(label='Download Excel',data=excel_data.getvalue(), file_name='output.xlsx')
+    st.download_button(label='Download Excel',data=excel_data.getvalue(), file_name='output.csv')
             # if st.button(f"Conversion successful! [Download Excel file]({excel_file_path})"):
             #     st.success("Downloaded Successfully")
