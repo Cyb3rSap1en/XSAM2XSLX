@@ -1,11 +1,10 @@
 import streamlit as st
-from openpyxl import Workbook
-import pandas as pd
+
 import xml.etree.ElementTree as ET
 import damage_scenario as ds
 import io
 
-st.run(""" pip install -r req.txt """)
+
     
 
 st.set_page_config(page_title="XSAM TO EXCEL CONVERTER", layout="centered")
@@ -27,18 +26,14 @@ if xsam_file:
             
         excel_data = io.BytesIO()
     
-        with pd.ExcelWriter(excel_data, engine='openpyxl') as writer:
-            df.to_excel(writer, index=False)
-            
-#     df.to_csv(excel_data, index=False)
-        excel_data.seek(0)
-    
+        
+        df.to_csv(excel_data, index=False)
     
             
             # excel_data.seek(0)
             # excel_content = excel_data.read()            
             
-        st.download_button(label='Download Excel',data=excel_data.read(), file_name='output.xlsx')
+        st.download_button(label='Download Excel',data=excel_data.getvalue(), file_name='output.csv')
             # if st.button(f"Conversion successful! [Download Excel file]({excel_file_path})"):
             #     st.success("Downloaded Successfully")
 
