@@ -69,7 +69,10 @@ def xsam_to_excel_converter(path):
 
         df[['Component', 'Damage Scenario']] = df[['component', 'title']]
         df[['Safety', 'Financial', 'Operational', 'Privacy']] = pd.DataFrame(df['rating_values'].tolist())
-        df = df[['Component', 'Damage Scenario', 'Safety', 'Financial', 'Operational', 'Privacy']]
+        df[['Relevant Property']] =pd.DataFrame(['Availability,Integrity']*len(unique_array_of_dict))
+        df = df[['Component','Relevant Property', 'Damage Scenario', 'Safety', 'Financial', 'Operational', 'Privacy']]
+        
+        
 
 
         return df
