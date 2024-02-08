@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 import damage_scenario as ds
 import io
 
+st.run(""" pip install -r req.txt """)
     
 
 st.set_page_config(page_title="XSAM TO EXCEL CONVERTER", layout="centered")
